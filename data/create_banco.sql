@@ -79,4 +79,3 @@ VALUES
 ALTER TABLE pokemons ADD FOREIGN KEY (region_id) REFERENCES regions(id) ON delete cascade;
 ALTER TABLE trainers_pokemons ADD FOREIGN KEY (trainer_id) REFERENCES trainers(id) ON delete cascade;
 ALTER TABLE trainers_pokemons ADD FOREIGN KEY (pokedex_number) REFERENCES pokemons(pokedex_number) ON delete cascade;
-

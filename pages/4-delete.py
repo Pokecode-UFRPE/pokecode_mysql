@@ -54,7 +54,7 @@ def delete(table, atributo, valor):
     return "Deletado com sucesso!"
 
 
-st.image('assets\logo-down.png', width=200)
+#st.image('assets\logo-down.png', width=200)
 st.title("CRUD - DELETE")
 with st.expander("Escolher table do DF"):
     table = st.selectbox("Selecione a tabela:", ["pokemons", "trainers", "trainers_pokemons", "regions"])
