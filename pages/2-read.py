@@ -37,14 +37,6 @@ def consultar_pokemons_tipo_grass():
     cursor.execute(query)
     data = cursor.fetchall()
     return data
-    
-def consultar_tables(table): 
-    cursor.execute(f"SELECT * FROM {table}")
-    columns = [column[0] for column in cursor.description]
-
-    data = cursor.fetchall()
-    
-    return data, columns
 
 st.title("CRUD - READ")
 with st.expander("Visualização de Tabelas Simples"):
@@ -63,10 +55,25 @@ with st.expander("Visualização de Tabelas Simples"):
             st.dataframe(data)
         else:
             st.subheader("Nenhum resultado encontrado.")
+            
+cursor.close()
+conn.close()            
+            
+
+
+
 
 
 
 # CONSULTA DE TABELAS RELACIONADAS
+
+conn = mysql.connector.connect(
+    host="Localhost",
+    user="root",
+    password="123456",
+    database="pokecode"
+)
+cursor = conn.cursor()
 
 def criar_pokemons_regions_view():
     query = """
@@ -91,7 +98,7 @@ def criar_trainers_pokemons_view():
 
 def criar_trainers_pokemons_regions_view():
     query = """
-    SELECT t.nome AS treinador_nome, p.nome AS pokemon_nome, r.nome AS regiao_nome
+    SELECT t.nome AS nome_treinador, p.nome AS nome_pokemon, r.nome AS regiao_pokemon
     FROM trainers_pokemons AS tp
     INNER JOIN trainers AS t ON tp.trainer_id = t.id
     INNER JOIN pokemons AS p ON tp.pokedex_number = p.pokedex_number
@@ -119,10 +126,23 @@ with st.expander("Visualização de Tabelas Relacionadas"):
         else:
             st.subheader("Nenhum resultado encontrado.")
 
+cursor.close()
+conn.close()
+
+
+
 
 
 
 # CONSULTA DE TABELAS AVANÇADA
+
+conn = mysql.connector.connect(
+    host="Localhost",
+    user="root",
+    password="123456",
+    database="pokecode"
+)
+cursor = conn.cursor()
 
 table_info = {
     "pokemons": {

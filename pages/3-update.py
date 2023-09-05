@@ -84,6 +84,7 @@ with st.expander("Adicionar trigger"):
     if st.button("Adicionar trigger"):
         st.success(adicionar_trigger())
 
+st.title("CRUD - UPDATE")
 with st.expander("Adicionar pokémon a um treinador"):
     trainer_id = st.number_input("ID do Treinador:", format = "%d", step = 1)
     pokedex_number = st.number_input("Número da Pokedex do Pokémon:", format = "%d", step = 1)

@@ -11,7 +11,7 @@ cursor = conn.cursor()
 
 cursor.execute("USE pokecode")
 
-
+st.title("CRUD - CREATE")
 def obter_nomes_tabelas():
     cursor.execute("SHOW TABLES")
     tabelas = [tabela[0] for tabela in cursor.fetchall()]

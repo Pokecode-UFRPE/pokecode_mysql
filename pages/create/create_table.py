@@ -53,7 +53,10 @@ def create():
     # se editar o banco de dados
     conn.commit()
     
-create()
+
+
+if st.button("Criar"):
+    create()
 
 
 
