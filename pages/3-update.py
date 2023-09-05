@@ -10,7 +10,6 @@ conn = mysql.connector.connect(
 cursor = conn.cursor()
 
 # funções
-
 def update_email(email, trainer):
     if isinstance(trainer, int):
         sql_update = "UPDATE trainers SET email = %s WHERE id = %s"
